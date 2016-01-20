@@ -1,0 +1,4 @@
+arduino
+git
+mercurial
+python-serial
