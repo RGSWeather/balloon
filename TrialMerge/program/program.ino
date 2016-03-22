@@ -32,49 +32,24 @@
  .enableEventFlags() Sets the fundamental event flags. Required during setup.
  
 */
+void setup() {
+  // put your setup code here, to run once:
 
-#include <Wire.h>
-//#include "MPL3115A2.h"
-#include <SparkFunMPL3115A2.h>
-
-
-//Create an instance of the object
-MPL3115A2 myPressure;
-
-void setup()
-{
   Wire.begin();        // Join i2c bus
   Serial.begin(9600);  // Start serial for output
 
-  /*myPressure.begin(); // Get sensor online
+  myPressure.begin(); // Get sensor online
 
   // Configure the sensor
   //myPressure.setModeAltimeter(); // Measure altitude above sea level in meters
   myPressure.setModeBarometer(); // Measure pressure in Pascals from 20 to 110 kPa
   
   myPressure.setOversampleRate(7); // Set Oversample to the recommended 128
-  myPressure.enableEventFlags(); // Enable all three pressure and temp event flags */
+  myPressure.enableEventFlags(); // Enable all three pressure and temp event flags 
+
 }
 
-void loop()
-{
-  float altitude = myPressure.readAltitude();
-  Serial.print("Altitude(m):");
-  Serial.print(altitude, 2);
-  Serial.print("\n");
+void loop() {
+  // put your main code here, to run repeatedly:
 
-  float pressure = myPressure.readPressure();
-  Serial.print("Pressure(Pa):");
-  Serial.print(pressure, 2);
-  Serial.print("\n");
-
-  float temperature = myPressure.readTemp();
-  temperature = temperature+273.15;
-  Serial.print(" Temp(K):");
-  Serial.print(temperature, 2);
-  Serial.print("\n");
-
-  float stuff[] = {altitude, pressure, temperature};
-
-  Serial.println("\n\n");
 }
